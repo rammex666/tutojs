@@ -1,5 +1,4 @@
 const {Client, Intents} = require('discord.js');
-const {token} = require("./config.json");
 const client = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -7,6 +6,7 @@ const client = new Client({
     ]
 });
 const prefixCmd = '!';
+require("dotenv").config();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -33,4 +33,4 @@ client.on("message", msg => {
 
 });
 
-client.login(token);
+client.login(process.env.BOT_TOKEN);
